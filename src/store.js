@@ -15,12 +15,13 @@ export default new Vuex.Store({
   //提交
   createTodos(context,values){
     //请求网络
-    const url = "http://localhost:8080/PackageToStorage";
+    const url = "http://localhost:8080/packages";
     axios.post(url,{
       packageId:values.packageId,
         name:values.name,
         telephone:values.telephone,
-        weight:values.weight
+        weight:values.weight,
+        status:1
     }).then(function(response){
       context.dispatch("createTodos")
     }).catch(function (error) {
